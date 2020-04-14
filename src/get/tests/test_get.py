@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-import app
+import get as app
 
 def test_stub():
     pass
