@@ -6,9 +6,13 @@ dev:
 build:
 	./src/get/build.sh
 	./src/post/build.sh
+	./src/simple/build.sh
 
-# test: build
-# 	npm run test
+
+test: build
+	./src/get/test.sh
+	./src/post/test.sh
+	./src/simple/test.sh
 
 infra:
 	./infrastructure/deploy.sh

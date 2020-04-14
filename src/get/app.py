@@ -13,13 +13,15 @@ class Request:
     path: str
     http_method: str
     headers: dict
-    multi_value_headers: dict
     query_string_parameters: dict
-    multi_value_query_string_parameters: dict
     path_parameters: dict
     stage_variables: dict
     request_context: dict
     body: str
+    multi_value_headers: dict = field(default_factory=lambda: {})
+    multi_value_query_string_parameters: dict = field(default_factory=lambda: {})
+
+
 
 @dataclass
 class Response:
@@ -40,10 +42,10 @@ def unmarshal_api_gatway_event(event: dict):
     return Request(path=event['path'],
                    http_method=event['httpMethod'],
                    headers=event['headers'],
-                   multi_value_headers=event['multiValueHeaders'],
+                #    multi_value_headers=event['multiValueHeaders'],
                    query_string_parameters=event['queryStringParameters'],
-                   multi_value_query_string_parameters=event[
-                       'multiValueQueryStringParameters'],
+                #    multi_value_query_string_parameters=event[
+                #        'multiValueQueryStringParameters'],
                    path_parameters=event['pathParameters'],
                    stage_variables=event['stageVariables'],
                    request_context=event['requestContext'],
@@ -51,8 +53,8 @@ def unmarshal_api_gatway_event(event: dict):
 
 def handler(event, _):
     request = unmarshal_api_gatway_event(event)
-    
     response = None
+    
     try:
         ddb = boto3.client('dynamodb')
         results = ddb.get_item(
