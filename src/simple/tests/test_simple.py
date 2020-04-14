@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-import app
+import simple as app
 
 def test_200_success():
     event = {}
