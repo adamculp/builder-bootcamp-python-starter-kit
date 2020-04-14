@@ -3,4 +3,4 @@
 cd $(dirname $0)
 
 pipenv install --dev
-pipenv run pytest
+pipenv run pytest --ignore vendor
