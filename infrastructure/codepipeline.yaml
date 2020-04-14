@@ -48,7 +48,7 @@ Resources:
                         python: 3.8
                     build:
                       commands:
-                        - npm ci
+                        - make build
                         - make test
 
   BuildStep:
