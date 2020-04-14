@@ -6,7 +6,7 @@ set -u
 cd $(dirname $0)
 
 # Configuration
-CodeCommitRepoName=builder-bootcamp-nodejs-starter-kit
+CodeCommitRepoName=builder-bootcamp-python-starter-kit
 StackName=bootcamp-starter-kit-infra
 BucketName=bootcamp-starter-kit-$USER
 Region=us-east-1

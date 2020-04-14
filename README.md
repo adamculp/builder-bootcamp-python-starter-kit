@@ -1,4 +1,4 @@
-# builder-bootcamp-nodejs-starter-kit
+# builder-bootcamp-python-starter-kit
 
 ## Requirements
 
