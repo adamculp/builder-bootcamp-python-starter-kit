@@ -8,6 +8,7 @@ pytest = "*"
 
 [packages]
 boto3 = "*"
+dynamodb-json = "*"
 
 [requires]
 python_version = "3.7"

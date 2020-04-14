@@ -8,6 +8,7 @@ sys.path.append(VENDOR_DIR)
 
 import boto3
 import json
+from dynamodb_json import json_util as ddb_json
 from dataclasses import dataclass, field
 
 @dataclass
@@ -60,13 +61,14 @@ def handler(event, _):
     if not event or not event['body']:
         print('No event body')
         return Response(400)
-
+    json_ = json.loads(request.body)
+    ddb_payload = ddb_json.dumps(json_)
     try:
         print('Preparing to save data')
         ddb = boto3.client('dynamodb')
         result = ddb.put_item(
             TableName='data-table',
-            Item=json.loads(request.body)
+            Item=ddb_payload
         )
         if not result:
             print('No results found')

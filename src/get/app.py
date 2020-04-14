@@ -7,6 +7,7 @@ sys.path.append(VENDOR_DIR)
 
 import boto3
 import json
+from dynamodb_json import json_util as ddb_json
 from dataclasses import dataclass, field
 
 @dataclass
@@ -70,7 +71,8 @@ def handler(event, _):
         if not results or not results['Item']:
             response = Response(400)
         else:
-            response = Response(200, body=json.dumps(results['Item']))
+            json_ = ddb_json.loads(results['Item'])
+            response = Response(200, body=json.dumps(json_))
       
     except Exception as err: 
         print(err)
