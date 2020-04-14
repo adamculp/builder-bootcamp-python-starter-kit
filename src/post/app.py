@@ -43,10 +43,10 @@ def unmarshal_api_gatway_event(event: dict):
     return Request(path=event['path'],
                    http_method=event['httpMethod'],
                    headers=event['headers'],
-                #    multi_value_headers=event['multiValueHeaders'],
+                   multi_value_headers=event['multiValueHeaders'],
                    query_string_parameters=event['queryStringParameters'],
-                #    multi_value_query_string_parameters=event[
-                #        'multiValueQueryStringParameters'],
+                   multi_value_query_string_parameters=event[
+                       'multiValueQueryStringParameters'],
                    path_parameters=event['pathParameters'],
                    stage_variables=event['stageVariables'],
                    request_context=event['requestContext'],
@@ -65,7 +65,7 @@ def handler(event, _):
         ddb = boto3.client('dynamodb')
         result = ddb.put_item(
             TableName='data-table',
-            Key={
+            Item={
                 'data':  {
                     'S': request.body
                 }
