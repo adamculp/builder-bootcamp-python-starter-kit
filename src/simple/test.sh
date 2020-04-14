@@ -2,4 +2,5 @@
 
 cd $(dirname $0)
 
+pipenv install --dev
 pipenv run pytest
