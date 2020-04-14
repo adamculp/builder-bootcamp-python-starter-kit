@@ -29,4 +29,5 @@ aws cloudformation deploy \
 
 # Display CodeCommit repository URL
 aws codecommit get-repository --repository-name ${CodeCommitRepoName} \
+--region ${Region} \
 --output text | awk '{print $4}'
