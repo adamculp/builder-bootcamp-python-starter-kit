@@ -58,7 +58,7 @@ def handler(event, _):
     request = unmarshal_api_gatway_event(event)
     response = None
 
-    if not event or not event['body']:
+    if not event or not 'body' in event:
         print('No event body')
         return Response(400)
     json_ = json.loads(request.body)
@@ -68,7 +68,7 @@ def handler(event, _):
         ddb = boto3.client('dynamodb')
         result = ddb.put_item(
             TableName='data-table',
-            Item=ddb_payload
+            Item=json.loads(ddb_payload)
         )
         if not result:
             print('No results found')

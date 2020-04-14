@@ -67,8 +67,7 @@ def handler(event, _):
                 }
             }
         )
-
-        if not results or not results['Item']:
+        if not results or not 'Item' in results:
             response = Response(400)
         else:
             json_ = ddb_json.loads(results['Item'])
