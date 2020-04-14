@@ -69,7 +69,7 @@ def handler(event, _):
         if not results or not results['Item']:
             response = Response(400)
         else:
-            response = Response(200, results['Item'])
+            response = Response(200, body=results['Item'])
       
     except Exception as err: 
         print(err)
