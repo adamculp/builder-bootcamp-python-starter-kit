@@ -42,10 +42,10 @@ def unmarshal_api_gatway_event(event: dict):
     return Request(path=event['path'],
                    http_method=event['httpMethod'],
                    headers=event['headers'],
-                #    multi_value_headers=event['multiValueHeaders'],
+                   multi_value_headers=event['multiValueHeaders'],
                    query_string_parameters=event['queryStringParameters'],
-                #    multi_value_query_string_parameters=event[
-                #        'multiValueQueryStringParameters'],
+                   multi_value_query_string_parameters=event[
+                       'multiValueQueryStringParameters'],
                    path_parameters=event['pathParameters'],
                    stage_variables=event['stageVariables'],
                    request_context=event['requestContext'],
@@ -66,10 +66,10 @@ def handler(event, _):
             }
         )
 
-        if not results or not results.Item:
+        if not results or not results['Item']:
             response = Response(400)
         else:
-            response = Response(200, results.Item)
+            response = Response(200, results['Item'])
       
     except Exception as err: 
         print(err)
