@@ -7,6 +7,7 @@ VENDOR_DIR = os.path.join(PARENT_DIR, 'vendor')
 sys.path.append(VENDOR_DIR)
 
 import boto3
+import json
 from dataclasses import dataclass, field
 
 @dataclass
@@ -65,11 +66,7 @@ def handler(event, _):
         ddb = boto3.client('dynamodb')
         result = ddb.put_item(
             TableName='data-table',
-            Item={
-                'data':  {
-                    'S': request.body
-                }
-            }
+            Item=json.loads(request.body)
         )
         if not result:
             print('No results found')
