@@ -4,7 +4,13 @@
 
 * AWS CLI already configured with Administrator permission
 * Git installed and configured
-* [Pyenv installed](https://github.com/pyenv/pyenv#choosing-the-python-version)
+* Python 3.8. You can install this with [Pyenv](https://github.com/pyenv/pyenv#choosing-the-python-version)
+    ```
+    # e.g. to use python 3.8 in the get lambda
+    pyenv install 3.8.0
+    cd src/get
+    pipenv --python /Users/joshmrsh/.pyenv/versions/3.8.0/bin/python3.8
+    ```
 * [Pipenv installed](https://github.com/pypa/pipenv)
 * [Docker installed](https://www.docker.com/community-edition)
 
@@ -40,8 +46,13 @@ git push -u codecommit master
 ### Requirements
 
 * AWS CLI
-* AWS SAM CLI
-* [Pyenv installed](https://github.com/pyenv/pyenv#choosing-the-python-version)
+* Python 3.8. You can install this with [Pyenv](https://github.com/pyenv/pyenv#choosing-the-python-version).
+    ```
+    # e.g. to use python 3.8 in the get lambda
+    pyenv install 3.8.0
+    cd src/get
+    pipenv --python /Users/joshmrsh/.pyenv/versions/3.8.0/bin/python3.8
+    ```
 * [Pipenv installed](https://github.com/pypa/pipenv)
 * [Docker installed](https://www.docker.com/community-edition)
 
@@ -73,19 +84,6 @@ make dev
 
 4. Test your work at the address returned
 
-**Running the Swagger editor**
-
-1. Start the service
-```bash
-make swagger-start
-```
-
-2. Point your browser to http://0.0.0.0:8080
-
-3. When done, stop the service
-```bash
-make swagger-stop
-```
 **Troubleshooting**
 
 If you face the `The requested URL returned error: 403` error while performing git operations:
