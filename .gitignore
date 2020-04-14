@@ -136,5 +136,7 @@ dmypy.json
 
 # Cython debug 
 
+# Misc
 vendor/
 .vscode/
+packaged-bootcamp-starter-kit-infra-template.yaml
