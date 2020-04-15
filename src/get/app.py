@@ -23,8 +23,6 @@ class Request:
     multi_value_headers: dict = field(default_factory=lambda: {})
     multi_value_query_string_parameters: dict = field(default_factory=lambda: {})
 
-
-
 @dataclass
 class Response:
     statusCode: int
@@ -40,7 +38,7 @@ class Response:
     def set_header(self, key: str, value: str):
         self.headers[key] = value
 
-def unmarshal_api_gatway_event(event: dict):
+def unmarshall_api_gateway_event(event: dict):
     return Request(path=event['path'],
                    http_method=event['httpMethod'],
                    headers=event['headers'],
@@ -54,7 +52,7 @@ def unmarshal_api_gatway_event(event: dict):
                    body=event['body'])
 
 def handler(event, _):
-    request = unmarshal_api_gatway_event(event)
+    request = unmarshall_api_gateway_event(event)
     response = None
     
     try:
@@ -72,7 +70,6 @@ def handler(event, _):
         else:
             json_ = ddb_json.loads(results['Item'])
             response = Response(200, body=json.dumps(json_))
-      
     except Exception as err: 
         print(err)
         response = Response(500)

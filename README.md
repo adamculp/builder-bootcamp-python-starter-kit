@@ -9,7 +9,7 @@
     # e.g. to use python 3.8 in the get lambda
     pyenv install 3.8.0
     cd src/get
-    pipenv --python /Users/joshmrsh/.pyenv/versions/3.8.0/bin/python3.8
+    pipenv --python ~/.pyenv/versions/3.8.0/bin/python3.8
     ```
 * [Pipenv installed](https://github.com/pypa/pipenv)
 * [Docker installed](https://www.docker.com/community-edition)
@@ -51,7 +51,7 @@ git push -u codecommit master
     # e.g. to use python 3.8 in the get lambda
     pyenv install 3.8.0
     cd src/get
-    pipenv --python /Users/joshmrsh/.pyenv/versions/3.8.0/bin/python3.8
+    pipenv --python ~/.pyenv/versions/3.8.0/bin/python3.8
     ```
 * [Pipenv installed](https://github.com/pypa/pipenv)
 * [Docker installed](https://www.docker.com/community-edition)
