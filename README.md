@@ -4,7 +4,7 @@
 
 * AWS CLI already configured with Administrator permission
 * Git installed and configured
-* Python 3.8. You can install this with [Pyenv](https://github.com/pyenv/pyenv#choosing-the-python-version)
+* Python 3.8. You can install this with [Pyenv](https://github.com/pyenv/pyenv).
     ```
     # e.g. to use python 3.8 in the get lambda
     pyenv install 3.8.0
@@ -46,7 +46,7 @@ git push -u codecommit master
 ### Requirements
 
 * AWS CLI
-* Python 3.8. You can install this with [Pyenv](https://github.com/pyenv/pyenv#choosing-the-python-version).
+* Python 3.8. You can install this with [Pyenv](https://github.com/pyenv/pyenv).
     ```
     # e.g. to use python 3.8 in the get lambda
     pyenv install 3.8.0
